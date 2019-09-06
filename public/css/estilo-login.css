@@ -1,0 +1,32 @@
+* { margin: 0 auto; }
+section { text-align: center; }
+
+div.tela { width: 40%; margin: 20px auto; border: 1px solid silver; border-radius: 1%; box-shadow: -9px 7px 5px silver; padding: 3% 1%;}
+div.menu { padding: 1%; }
+
+header.menu h1 {text-align: center;}
+div.menu a {text-decoration: none; color:red;}
+h1.titulo { color: rgba(27, 26, 26, 0.918); }
+
+div.tela a.welcome { font-size: 30px; text-decoration: none; }
+
+article.corpo { width: 60%; margin: 2% auto;}
+label.label-local { width: 100%; font-size: 16px; font-weight: bolder; text-align: left;}
+input.input-local { height: 45px; width: 100%; border: 1px solid #343a40; border-radius: 3px; outline: none; padding: 5px;}
+span { font-size: 13px; }
+
+@media only screen and (max-width: 1200px) {
+    div.tela { width: 60%; }
+}
+
+@media only screen and (max-width: 1000px) {
+    div.tela { width: 70%; }
+}
+
+@media only screen and (max-width: 800px) {
+    div.tela { width: 80%; }
+}
+
+@media only screen and (max-width: 600px) {
+    div.tela { width: 90%; }
+}

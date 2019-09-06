@@ -1,0 +1,66 @@
+* { margin: 0 auto; text-align: center; text-decoration: none;}
+
+section.corpo { width: 65%; margin-top: 1%;}
+
+.bordasilver { border: solid 1px rgb(222,226,230);}
+
+.calendario td { width: 10%;}
+.calendario button { width: 50%; }
+
+div.menu {background-color: rgb(242,242,242); padding-top: 1% 0%; margin-bottom: 1%;}
+div.messemana { text-align: right; padding: 1%;}
+div.messemana select { margin-right: 1%; }
+div.view { width: 50%; }
+
+.menu select { width: 20%; }
+
+th.mes-calendario { text-align: right; padding: 1% 10%;}
+tr.menu-calendario { font-weight: bolder; }
+
+tr.menu-calendario td { color: #6C757D; }
+tr.menu-calendario td.dia-blue { color: #007BFF; }
+
+button.mais { background-color: transparent; border: none; color: rgba(37, 37, 37, 0.774); font-weight: bolder; }
+td.mais { background-color:  rgb(242,242,242); transition: 1s; }
+
+nav { text-align: center; }
+
+/* Configurando cores */
+.bolder { font-weight: bolder; }
+
+.status-red { color: red; }
+.status-blue { color: blue; }
+.status-green { color: green; }
+
+/* Menu AUTH */
+.menu-auth { width: 100%;}
+
+/* Estilo dados.blade.php */
+section.dados { width: 80%; }
+/* section.dados h1 { font-size: 30px; } */
+
+section.dados td.cor { width: 10%; }
+section.dados td.atividade { width: 60%; text-align: left;}
+section.dados td.status { width: 10%; }
+
+section.dados div.info { height: 30px; width: 30px; border-radius: 15%;}
+
+@media only screen and (max-width: 1200px) {
+    section.corpo { width: 80%; margin-top: 1%;}
+}
+
+@media only screen and (max-width: 900px) {
+    section.corpo { width: 85%; margin-top: 1%;}
+    .menu select { width: 30%; }
+    div.view { width: 80%; }
+}
+
+@media only screen and (max-width: 800px) {
+    section.corpo { width: 95%; margin-top: 1%;}
+    .calendario button { width: 66%;}
+}
+
+@media only screen and (max-width: 600px) {
+    .calendario button { width: 100%;}
+    div.view { width: 100%; }
+}
