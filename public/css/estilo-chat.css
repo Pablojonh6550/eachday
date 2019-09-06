@@ -1,0 +1,5 @@
+* { margin: 0 auto; }
+
+section.tela { width: 40%; background-color: silver; }
+
+img.usuario { height: 40px; width: 40px; border-radius: 50%; }
