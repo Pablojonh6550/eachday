@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\User;
 
 class CreateAgendasTable extends Migration
 {
@@ -20,7 +21,7 @@ class CreateAgendasTable extends Migration
             $table->char('status', '1')->default('1');
             $table->char('cor', 7);
             $table->text('descricao')->nullable();
-            $table->integer('fk_user');
+            $table->integer('fk_user')->unsigned();
             $table->foreign('fk_user')->references('id')->on('users');
             $table->timestamps();
         });

@@ -40,3 +40,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('calendario/perfil', 'PerfilController@redirect')->name('perfil');
+
+/* -------------------------------------Rotas Chat----------------------------------------- */
+
+Route::get('/chat', 'ChatController@index')->name('chat_index');
