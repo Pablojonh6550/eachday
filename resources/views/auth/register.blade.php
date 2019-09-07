@@ -33,7 +33,7 @@
 
             <div class="iinput-group mb-3">
                 <label class="label-local">Senha:</label>
-                <input type="password" class="input-local input-local form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password"  placeholder="Crie uma senha" value="{{ old('email') }}" required>
+                <input type="password" class="input-local input-local form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password"  placeholder="Crie uma senha" value="{{ old('password') }}" required>
 
                 @if ($errors->has('password'))
                     <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
 
              <div class="iinput-group mb-3">
                 <label class="label-local">Confirmar Senha:</label>
-                <input type="password" class="input-local input-local form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" id="password_confirmation" name="password_confirmation"  placeholder="Crie uma senha" value="{{ old('email') }}" required>
+                <input type="password" class="input-local input-local form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" id="password_confirmation" name="password_confirmation"  placeholder="Confirme uma senha" value="{{ old('password_confirmation') }}" required>
 
                 @if ($errors->has('password_confirmation'))
                     <span class="invalid-feedback" role="alert">

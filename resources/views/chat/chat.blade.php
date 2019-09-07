@@ -11,7 +11,7 @@
     <section class="tela">
         <article class="titulo">
             <div class="sair">
-                <a href="{{route('index')}}">Voltar</a>
+                <img src="imagens/setinha.png" class="invertida-direita">
             </div>
 
             <div class="usuario">
@@ -26,31 +26,35 @@
         </article>
         
         <article class="mensagens">
-            <div class="msg-recebida">
+            <div class="mensagem recebida">
                 Olá, mundo!
             </div>
 
-            <div class="msg-enviada">
+            <div class="mensagem enviada">
                 Olá, tudo bem?
             </div>
 
-            <div class="msg-enviada">
+            <div class="mensagem recebida">
                 Sisi adoro.
             </div>
 
-            <div class="msg-recebida">
+            <div class="mensagem enviada">
                 Ainda bem né parceiro
+            </div>
+
+            <div class="mensagem enviada">
+            Texto é um conjunto de palavras e frases encadeadas que permitem interpretação e transmitem uma mensagem. É qualquer obra escrita em versão original e que constitui um livro ou um documento escrito.    
             </div>
         </article>
 
-        <article class="digitar">
+        <article class="titulo">
             <form action="" method="POST">
                 <div class="campo-texto">
                     <input type="text" name="campo-texto">
                 </div>
 
                 <div class="enviar">
-                    <input type="submit" name="btn-digitar">
+                    <input type="submit" value="OK" name="btn-digitar">
                 <div>
             </form>
         </article>
