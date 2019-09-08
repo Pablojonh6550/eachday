@@ -43,4 +43,6 @@ Route::get('calendario/perfil', 'PerfilController@redirect')->name('perfil');
 
 /* -------------------------------------Rotas Chat----------------------------------------- */
 
-Route::get('/chat', 'ChatController@index')->name('chat_index');
+Route::post('/contatos', 'ChatController@index')->name('chat_index');
+Route::get('/contatos', 'ChatController@index')->name('index_chat');
+Route::get('/chat/{id}', 'ChatController@mensagem')->name('mensagem');
