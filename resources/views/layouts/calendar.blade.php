@@ -13,42 +13,6 @@
 </head>
 <body>
     <section class='corpo'>
-        <div class='menu bordasilver'>
-            <nav>
-                <ul class="navbar-nav ml-auto menu-auth">
-                    <li class="nav-item dropdown">
-                        <div>
-
-                        </div>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->user }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('chat_index') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('chat-form').submit();">
-                                {{ __('Chat') }}
-                            </a>
-
-                            <form id="chat-form" action="{{ route('chat_index') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                </ul>               
-            </nav>
-        </div>
         @yield('content')
     </section>
 </body>

@@ -71,4 +71,54 @@
         @endfor
     </table>
 </div>
+
+<div class='perfil menu bordasilver'>
+    <div>
+        <ul class="navbar-nav ml-auto menu-auth">
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->user }} <span class="caret"></span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('chat_index') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('chat-form').submit();">
+                        {{ __('Chat') }}
+                    </a>
+
+                    <form id="chat-form" action="{{ route('chat_index') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        </ul>    
+    </div>
+
+    <div class="atividades">
+        <h6>Atividades do mês</h6>
+
+        @if($atividades_user)
+            <table>
+            @foreach($atividades_user as $dados)
+                @php($data = $dados->dia)
+                <tr>
+                    <td class="dia">{{date('d', strtotime($data))}}</td>
+                    <td class="atividade">{{$dados->atividade}}</td>
+                </tr>
+            @endforeach
+            </table>
+        @endif
+    </div>
+</div>
 @endsection

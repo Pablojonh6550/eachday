@@ -1,6 +1,5 @@
 <?php
     $session = mt_rand(1,9999);
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -12,7 +12,9 @@
         </div>
 
         <div class="nome">
-            Daniel
+        @foreach($contato as $contato)   
+            {{$contato->user}}
+        @endforeach
         </div>
     </div>
 </article>

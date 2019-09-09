@@ -18,8 +18,9 @@ class ChatController extends Controller
 
     public function mensagem($id) {
         $user = Auth::user();
+        $recebe = User::all()->where('id', $id);
         $msg = User::all()->where('user',$user)->where('receptor', $id);
-
-        return view('chat.mensagens', ['mensagens' => $msg]);
+        
+        return view('chat.mensagens', ['contato' => $recebe, 'mensagens' => $msg]);
     }
 }

@@ -19,7 +19,10 @@ class AgendaController extends Controller
 
           $retorno = AgendaController::maximo($u_ano, $u_mes);
           $meses = AgendaController::convert($u_mes);
-          return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user]);
+
+          $atividades_mes = AgendaController::atividade_user($user->id, $u_mes); 
+
+          return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user, 'atividades_user' => $atividades_mes]);
      }
 
      public function mes(Request $request){
@@ -30,7 +33,10 @@ class AgendaController extends Controller
 
           $retorno = AgendaController::maximo($u_ano, $u_mes);
           $meses = AgendaController::convert($u_mes);
-          return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user]);
+          
+          $atividades_mes = AgendaController::atividade_user($user->id, $u_mes);
+
+          return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user, 'atividades_user' => $atividades_mes]);
      }
 
      public function dia(Request $request) {
@@ -106,4 +112,14 @@ class AgendaController extends Controller
           Agenda::find($id)->update(['status' => $val]);
           return redirect('/calendario');
      }
+
+     public function atividade_user($id, $mes){
+
+          $r_dados = DB::select('select * from agendas where fk_user = ? and month(dia) = ?', [$id, $mes]);
+
+          if(count($r_dados)>0){
+               return $r_dados;
+          }
+  
+      }
 }
