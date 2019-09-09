@@ -46,3 +46,5 @@ Route::get('calendario/perfil', 'PerfilController@redirect')->name('perfil');
 Route::post('/contatos', 'ChatController@index')->name('chat_index');
 Route::get('/contatos', 'ChatController@index')->name('index_chat');
 Route::get('/chat/{id}', 'ChatController@mensagem')->name('mensagem');
+
+Route::post('/adicionar', 'ChatController@adicionar')->name('add_mensagem');

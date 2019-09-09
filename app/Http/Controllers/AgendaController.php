@@ -115,7 +115,7 @@ class AgendaController extends Controller
 
      public function atividade_user($id, $mes){
 
-          $r_dados = DB::select('select * from agendas where fk_user = ? and month(dia) = ?', [$id, $mes]);
+          $r_dados = DB::select('select * from agendas where fk_user = ? and month(dia) = ? order by dia', [$id, $mes]);
 
           if(count($r_dados)>0){
                return $r_dados;

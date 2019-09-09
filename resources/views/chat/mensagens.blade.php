@@ -1,6 +1,10 @@
 @extends('chat.chat')
 
 @section('content')
+@foreach($contato as $contato)   
+    @php($id = $contato->id)
+    @php($user = $contato->user)
+@endforeach
 <article class="titulo">
     <div class="sair">
         <a href="{{route('index_chat')}}"><img src="../imagens/setinha.png" class="setinha invertida-direita"></a>
@@ -12,25 +16,27 @@
         </div>
 
         <div class="nome">
-        @foreach($contato as $contato)   
-            {{$contato->user}}
-        @endforeach
+            {{$user}}
         </div>
     </div>
 </article>
 
 <article class="mensagens">
-    <!-- <div class="mensagem enviada">
-        Olá, tudo bem?
-    </div> -->
-    
+    @foreach($mensagens as $msg)
+    <div class="mensagem enviada">
+        {{$msg->mensagens}}
+    </div>
+    @endforeach
+
     <div id="fim"></div>
 </article>
 
 <article class="titulo">
-    <form action="" method="POST">
+    <form action="{{route('add_mensagem')}}" method="POST">
+        @csrf
         <div class="campo-texto">
-            <input type="text" name="campo-texto" class="form-control" placeholder="Digite uma mensagem">
+            <input type="hidden" name="receptor" value="{{$id}}">
+            <input type="text" name="campotexto" class="form-control" placeholder="Digite uma mensagem">
         </div>
 
         <div class="enviar">

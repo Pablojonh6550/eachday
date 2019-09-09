@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Chats;
+use DB;
 
 class ChatController extends Controller
 {
@@ -19,8 +21,23 @@ class ChatController extends Controller
     public function mensagem($id) {
         $user = Auth::user();
         $recebe = User::all()->where('id', $id);
-        $msg = User::all()->where('user',$user)->where('receptor', $id);
-        
+        $msg = DB::select('select * from chats where user = ? and receptor = ?', [$user->id, $id]);
+
         return view('chat.mensagens', ['contato' => $recebe, 'mensagens' => $msg]);
     }
+
+    public function adicionar(Request $request, Chats $chat) {
+        $user = Auth::user();
+        $receptor = $request->receptor;
+        $mensagem = $request->campotexto;
+
+        $chat->user = $user->id;
+        $chat->receptor = $receptor;
+        $chat->mensagens = $mensagem;
+
+        $chat->save();
+
+        return redirect('chat/'.$receptor);
+    }
+    
 }

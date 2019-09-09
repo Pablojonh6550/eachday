@@ -34,4 +34,13 @@ class User extends Authenticatable
      * @var array
      */
 
+    public function getUserAttribute($value) {
+        // $string = $value[2];
+        
+        $string = $value;
+
+ 
+        return $string;
+    }
+
 }
