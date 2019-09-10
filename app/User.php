@@ -36,10 +36,7 @@ class User extends Authenticatable
 
     public function getUserAttribute($value) {
         // $string = $value[2];
-        
         $string = $value;
-
- 
         return $string;
     }
 

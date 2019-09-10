@@ -14,7 +14,7 @@ div.nome { float: left; padding: 4% 0%; }
 /* Mensagens */
 article.mensagens { height: 450px; background-color: rgb(226, 223, 223); padding: 5px; overflow: auto; }
 
-div.mensagem { padding: 10px; margin: 0px 5px 5px 5px; border-radius: 5px; }
+div.mensagem { padding: 10px; margin: 0px 5px 5px 5px; border-radius: 5px; overflow-wrap: break-word;}
 div.enviada { background-color: rgb(159, 192, 159); text-align: right; }
 div.recebida { background-color: rgb(179, 179, 179); }
 
@@ -34,3 +34,7 @@ article.contatos { height: 550px; background-color: rgb(235, 229, 229); border: 
 div.contato { border-bottom: 1px solid rgb(175, 170, 170); float: left; width: 100%; height: 55px; }
 
 span.email { font-style: italic; font-size: 12px; }
+
+@media only screen and (max-width: 800px) {
+   section.tela { width: 60%; }
+}
