@@ -20,8 +20,9 @@ class ChatController extends Controller
 
     public function mensagem($id) {
         $user = Auth::user();
-        $recebe = User::all()->where('id', $id);
-        $msg = DB::select('select * from chats where user = ? and receptor = ?', [$user->id, $id]);
+        $recebe = User::all()->where('id', $id);  
+
+        $msg = DB::select('select * from chats where user = ? and receptor = ? or user = ? and receptor = ? order by id', [$user->id, $id, $id, $user->id]);
 
         return view('chat.mensagens', ['contato' => $recebe, 'mensagens' => $msg]);
     }

@@ -1,14 +1,15 @@
 * { margin: 0 auto; text-align: center; text-decoration: none;}
 
-section.corpo { width: 65%; margin-top: 1%;}
+section.corpo { width: 70%; margin-top: 1%;}
 
 .bordasilver { border: solid 1px rgb(222,226,230);}
 
-div.calendario { width: 75%; float: left;}
-div.perfil { margin-left: 1%; width: 24%; float: left;}
+div.calendario { width: 70%; float: left;}
+div.perfil { margin-left: 1%; width: 29%; float: left;}
 
 td.dia { font-weight: bolder; width: 20%;}
 td.atividade { text-align: left; }
+td.atual { background-color: rgb(169, 212, 169); }
 
 .calendario td { width: 10%;}
 .calendario button { width: 70%; }
@@ -17,6 +18,10 @@ div.menu {background-color: rgb(242,242,242); padding-top: 1% 0%; margin-bottom:
 div.messemana { text-align: right; padding: 1%;}
 div.messemana select { margin-right: 1%; }
 div.view { width: 50%; }
+div.atividades { height: 397px; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
+
+div.atividades td { border:1px solid silver; border-left: none; border-right: none; }
+div.atividades table { width: 90%; }
 
 .menu select { width: 20%; }
 
