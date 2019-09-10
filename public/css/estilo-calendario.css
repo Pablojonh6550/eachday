@@ -1,6 +1,7 @@
 * { margin: 0 auto; text-align: center; text-decoration: none;}
 
 section.corpo { width: 70%; margin-top: 1%;}
+section.dados { border: 1px solid silver; box-shadow: 5px 5px 5px silver; }
 
 .bordasilver { border: solid 1px rgb(222,226,230);}
 
@@ -18,10 +19,16 @@ div.menu {background-color: rgb(242,242,242); padding-top: 1% 0%; margin-bottom:
 div.messemana { text-align: right; padding: 1%;}
 div.messemana select { margin-right: 1%; }
 div.view { width: 50%; }
-div.atividades { height: 397px; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
 
+div.atividades { height: 397px; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
 div.atividades td { border:1px solid silver; border-left: none; border-right: none; }
 div.atividades table { width: 90%; }
+
+div.tabelaatividade { width: 90%; padding: 5%; }
+
+div.tela { width: 60%; padding: 6%;}
+div.alerta { width: 50%; margin: 30px auto;}
+.alinkado { margin: auto 10px; }
 
 .menu select { width: 20%; }
 

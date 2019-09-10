@@ -2,11 +2,13 @@
 
 @section('content') 
 <section class="dados">
-     <div>
+     @if(count($atividade) > 0)
+     <div class="tabelaatividade">
           <table class="table">
         
           <th colspan='3'>Atividade</th>
-          <th colspan='3'>Status</th>
+          <th>Status</th>
+          <th colspan='2'>Ações</th>
 
           @php ($i=0)
           @foreach($atividade as $dados)
@@ -37,11 +39,18 @@
           </table>
      </div>
      
+     @else
+     <div class="alerta">
+          <p>Esse dia ainda não contém nenhuma atividade, vamos lá adicione:</p>
+     </div>
+     @endif
+
      <div class="input-group mb-3"> 
           <form action="{{route('dia')}}" method="post">
           @csrf
                <div class="input-group-prepend"></div>
                <input type="hidden" name="data" value="{{$data}}">
+               <a href="{{route('calendar')}}" class="btn btn-danger alinkado">Cancelar</a>
                <button type="submit" name="btn-add" class="btn btn-primary">Adicionar</button>
           </form>
      </div>

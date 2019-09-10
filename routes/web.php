@@ -28,7 +28,7 @@ Route::put('/calendario/login/update/','loginController@update')->name('update')
 /* -------------------------------------Rotas Calendario----------------------------------- */
 
 Route::get('calendario', 'AgendaController@index')->name('calendar')->middleware();
-Route::post('calendario/novo', 'AgendaController@mes')->name('mes'); //Fiz alterações
+Route::post('calendario', 'AgendaController@mes')->name('mes'); //Fiz alterações
 Route::post('calendario/atividade', 'AgendaController@checar_atividade')->name('checar');
 Route::post('calendario/dia', 'AgendaController@dia')->name('dia');
 Route::get('calendario/dados', 'AgendaController@dados')->name('dados');

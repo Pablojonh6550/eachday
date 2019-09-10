@@ -36,7 +36,7 @@
 
 <div class='calendario'>
     <table class="table table-striped calendario bordasilver">
-        <th colspan="7" class='mes-calendario'>{{ $meses }}/{{ $u_ano }}</th>
+        <th colspan="7" class='mes-calendario'>{{ $meses }} de {{ $u_ano }}</th>
         <tr class='menu-calendario'>
             <td class='dia-blue'>D</td><td>S</td><td>T</td><td>Q</td><td>Q</td><td>S</td><td class='dia-blue'>S</td>
         </tr>
