@@ -31,7 +31,7 @@
 </div>
 
 @if(session('message'))
-<div class="alert alert-danger" role="alert">Mensagem:{{ session('message') }}</div>
+<script> $(document).ready(function(){ $("#alert").modal(); }); </script>
 @endif
 
 <div class='calendario'>
@@ -42,7 +42,7 @@
         </tr>
         @php ($dia=1)
         @for($sem=0; $sem<=5; $sem++)
-            <tr>
+            <tr class="data">
             @for($cnd=1; $cnd<=7; $cnd++) 
                 @if($cnd == 1 || $cnd == 7)
                     @php ($classe = "primary")
@@ -106,19 +106,45 @@
     </div>
 
     <div class="atividades">
-        <h6>Atividades do mês</h6>
-
         @if($atividades_user)
             <table>
+                <th colspan="2">Atividades do Mês</th>
             @foreach($atividades_user as $dados)
                 @php($data = $dados->dia)
+                
+                @if(date('Y-m-d') == $data)
+                    @php($atual = "atual")
+                @else  
+                    @php($atual = "")
+                @endif
+
                 <tr>
-                    <td class="dia">{{date('d', strtotime($data))}}</td>
-                    <td class="atividade">{{$dados->atividade}}</td>
+                    <td class="dia {{$atual}}">{{date('d', strtotime($data))}}</td>
+                    <td class="atividade {{$atual}}">{{$dados->atividade}}</td>
                 </tr>
             @endforeach
             </table>
         @endif
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Atividade adicionada!
+      </div>
+      
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

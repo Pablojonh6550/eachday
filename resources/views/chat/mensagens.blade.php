@@ -40,7 +40,7 @@
         @csrf
         <div class="campo-texto">
             <input type="hidden" name="receptor" value="{{$id}}">
-            <input type="text" name="campotexto" class="form-control" placeholder="Digite uma mensagem">
+            <textarea name="campotexto" id="digitar" class="form-control" autofocus></textarea>
         </div>
 
         <div class="enviar">

@@ -12,7 +12,7 @@ div.foto { float: left; padding: 2% 3% 0% 3%;}
 div.nome { float: left; padding: 4% 0%; }
 
 /* Mensagens */
-article.mensagens { height: 450px; background-color: rgb(226, 223, 223); padding: 5px; overflow: auto; }
+article.mensagens { height: 500px; background-color: rgb(226, 223, 223); padding: 5px; overflow: auto; }
 
 div.mensagem { padding: 10px; margin: 0px 5px 5px 5px; border-radius: 5px; overflow-wrap: break-word;}
 div.enviada { background-color: rgb(159, 192, 159); text-align: right; }
@@ -26,7 +26,10 @@ img.usuario { height: 40px; width: 40px; border-radius: 50%; }
 div.campo-texto { height: 100%; width: 80%; float: left; padding: 6px 0px 0px 6px;}
 div.enviar { height: 100%; width: 15%; float: left; }
 
+div.campo-texto textarea { height: 35px; width: 100%; resize: none; }
 div.enviar input[type='submit'] { height: 35px; width: 100%; margin: 6px;}
+
+textarea:focus, input:focus, select:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }   
 
 /* Página de Contatos */
 article.contatos { height: 550px; background-color: rgb(235, 229, 229); border: 1px solid rgb(175, 170, 170); border-left: none; border-right: none; overflow: auto;}
