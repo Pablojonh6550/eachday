@@ -72,7 +72,7 @@ class AgendaController extends Controller
 
          $result =  $agenda->save();
 
-          return redirect(route('mes'))->with(['message'=> 'realizado com sucesso']);
+          return redirect('/calendario')->with(['message'=> 'realizado com sucesso']);
      }
 
      public function checar_atividade(Request $request){
@@ -110,7 +110,7 @@ class AgendaController extends Controller
           }
 
           Agenda::find($id)->update(['status' => $val]);
-          return redirect('/calendario');
+          return redirect('/login');
      }
 
      public function atividade_user($id, $mes){
