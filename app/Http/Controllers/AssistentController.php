@@ -15,7 +15,7 @@ class AssistentController extends Controller
         $pesquisa = DB::table('assistent_models')->where('id',$id)->get();
         $resposta = $pesquisa->resposta;
 
-        return redirect('/',['resposta',$resposta]);
+        return view('assistente.assistente');
 
     }
 
@@ -23,7 +23,7 @@ class AssistentController extends Controller
 
     public function index_pergunta(){
 
-        return view('');
+        return view('assistente.assistente');
     }
 
     public function add_pergunta(Resquest $request){

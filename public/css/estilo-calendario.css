@@ -12,7 +12,7 @@ td.dia { font-weight: bolder; width: 20%;}
 td.atividade { text-align: left; }
 td.atual { background-color: rgb(169, 212, 169); }
 
-.calendario td { width: 10%;}
+.calendario td { width: 10%; }
 .calendario button { width: 70%; }
 
 div.menu {background-color: rgb(242,242,242); padding-top: 1% 0%; margin-bottom: 1%;}
@@ -32,7 +32,7 @@ div.alerta { width: 50%; margin: 30px auto;}
 
 .menu select { width: 20%; }
 
-th.mes-calendario { text-align: right; padding: 1% 10%;}
+th.mes-calendario { text-align: left; padding: 1% 10%;}
 tr.menu-calendario { font-weight: bolder; }
 
 tr.menu-calendario td { color: #6C757D; }
@@ -47,6 +47,7 @@ nav { text-align: center; }
 .bolder { font-weight: bolder; }
 
 .status-red { color: red; }
+.status-orange { color: orange; }
 .status-blue { color: blue; }
 .status-green { color: green; }
 

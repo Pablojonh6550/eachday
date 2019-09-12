@@ -18,7 +18,7 @@ class CreateAgendasTable extends Migration
             $table->increments('id');
             $table->text('atividade');
             $table->date('dia');
-            $table->char('status', '1')->default('1');
+            $table->char('status', '1')->default('0');
             $table->char('cor', 7);
             $table->text('descricao')->nullable();
             $table->integer('fk_user')->unsigned();

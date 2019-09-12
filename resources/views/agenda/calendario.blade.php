@@ -53,11 +53,27 @@
                 @if($sem == 0 && $inimes > $cnd) 
                     <td></td>
                 @elseif($dia <= $maxmes)
+                    @php($cor = 0)
+
+                    @if($atividades_user)
+                        @foreach($atividades_user as $dados)
+                            @if($dados->dia == $u_ano.'-'.$u_mes.'-0'.$dia || $dados->dia == $u_ano.'-'.$u_mes.'-'.$dia)
+                                @php($cor++) 
+                            @endif
+                        @endforeach
+                    @endif
+
                     <td>
                         <form action="{{route('checar'), $dia}}" method="post">
                         @csrf
                             <input type="hidden" name="data" value={{$u_ano}}-{{$u_mes}}-{{$dia}}>
-                            <button type="submit" id="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-outline-{{$classe}}" data-toggle="modal" data-target="#dia">
+                            @if(date('Y-m-d') == $u_ano.'-'.$u_mes.'-0'.$dia || date('Y-m-d') == $u_ano.'-'.$u_mes.'-'.$dia)
+                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-success">
+                            @elseif($cor > 0)
+                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-primary">
+                            @else  
+                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-outline-{{$classe}}">
+                            @endif
                                 {{$dia}}
                             </button>
                         </form>
@@ -107,7 +123,7 @@
                 @else  
                     @php($atual = "")
                 @endif
-
+                
                 <tr>
                     <td class="dia {{$atual}}">{{date('d', strtotime($data))}}</td>
                     <td class="atividade {{$atual}}">{{$dados->atividade}}</td>

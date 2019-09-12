@@ -27,24 +27,28 @@ Route::put('/calendario/login/update/','loginController@update')->name('update')
 
 /* -------------------------------------Rotas Calendario----------------------------------- */
 
+// Calendário
 Route::get('calendario', 'AgendaController@index')->name('calendar')->middleware();
-Route::post('calendario', 'AgendaController@mes')->name('mes'); //Fiz alterações
+Route::post('calendario', 'AgendaController@mes')->name('mes');
+// View Atividade
+Route::get('calendario/atividade', function() {return redirect('calendario');} );
 Route::post('calendario/atividade', 'AgendaController@checar_atividade')->name('checar');
-Route::post('calendario/dia', 'AgendaController@dia')->name('dia');
-Route::get('calendario/dados', 'AgendaController@dados')->name('dados');
+// Adicionar Tarefa
+Route::get('calendario/tarefa', function() {return redirect('calendario');} );
+Route::post('calendario/tarefa', 'AgendaController@dia')->name('dia');
 Route::post('calendario/add', 'AgendaController@salvar')->name('salvar');
-
-Route::get('calendario/atividade/{id}', 'AgendaController@deletar')->name('deletar');
-Route::get('calendario/atividade/{id}/{valor}', 'AgendaController@feita')->name('feita');
+// View Dados
+Route::get('calendario/dados', 'AgendaController@dados')->name('dados');
+// Feita
+Route::get('calendario/feita', function() {return redirect('calendario');} );
+Route::post('calendario/feita', 'AgendaController@fazer')->name('fazer');
+// Deletar
+Route::get('calendario/delete', function() {return redirect('calendario');} );
+Route::post('calendario/delete', 'AgendaController@deletar')->name('deletar');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('calendario/perfil', 'PerfilController@redirect')->name('perfil');
 
 /* -------------------------------------Rotas Chat----------------------------------------- */
-
-Route::post('/contatos', 'ChatController@index')->name('chat_index');
-Route::get('/contatos', 'ChatController@index')->name('index_chat');
-Route::get('/chat/{id}', 'ChatController@mensagem')->name('mensagem');
-
-Route::post('/adicionar', 'ChatController@adicionar')->name('add_mensagem');
+Route::get('/assistente', 'AssistentController@index_pergunta')->name('assistente');

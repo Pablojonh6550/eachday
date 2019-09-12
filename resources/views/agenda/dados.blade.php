@@ -14,21 +14,39 @@
           @foreach($atividade as $dados)
 
           @if($dados->status == 0)
-               @php ($status = "Concluída")
-               @php ($acao = "Desfazer")  
-               @php ($cor = "green")       
-          @else
                @php ($status = "Incompleta")
-               @php ($acao = "Feita") 
+               @php ($acao = "Começar")  
                @php ($cor = "red")       
+          @elseif($dados->status == 1)
+               @php ($status = "Fazendo")
+               @php ($acao = "Terminar") 
+               @php ($cor = "orange") 
+          @else      
+               @php ($status = "Feita")
+               @php ($acao = "Desfazer") 
+               @php ($cor = "green") 
           @endif
           <tr>
                <td><button data-toggle="collapse" data-target="#info{{$i}}" class="mais">+</button></td>
                <td class="cor"><div style="background-color: {{$dados->cor}};" class="info"></div></td>
                <td class="atividade">{{$dados->atividade}}</td>
                <td class="status status-{{$cor}}">{{$status}}</td>
-               <td class="status-blue bolder"><a href="{{route('feita', ['id' => $dados->id, 'valor' => $dados->status])}}" class="acoes">{{$acao}}</a></td>
-               <td class="status-blue bolder"><a href="{{route('deletar', ['id' => $dados->id])}}" class="acoes">Deletar</a></td>
+               <td class="status-blue bolder">
+                    <form action="{{route('fazer')}}" method="post">
+                         @csrf
+                         <input type="hidden" name="id" value="{{$dados->id}}">
+                         <input type="hidden" name="status" value="{{$dados->status}}">
+                         <input type="submit" name="btn-fazer" class="btn btn-success alinkado" value="{{$acao}}">
+                    </form>
+               </td>
+               <td class="status-blue bolder">
+                    <form action="{{route('deletar')}}" method="post">
+                         @csrf
+                         <input type="hidden" name="id" value="{{$dados->id}}">
+                         <input type="hidden" name="data" value="{{$dados->dia}}">
+                         <input type="submit" name="btn-deletar" class="btn btn-danger" value="Deletar">
+                    </form>
+               </td>
           </tr>
 
           <tr>
