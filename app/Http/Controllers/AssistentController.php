@@ -43,6 +43,7 @@ class AssistentController extends Controller
     public function add_new_pergunt(){
         return view('agenda.novas');
     }
+    
 
     
 }
