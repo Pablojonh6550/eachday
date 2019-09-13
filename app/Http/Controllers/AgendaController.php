@@ -42,7 +42,7 @@ class AgendaController extends Controller
      public function dia(Request $request) {
           $data = $request->data;
 
-         return view('agenda.view', ['data' => $data]);
+          return view('agenda.view', ['data' => $data]);
      }
 
      public function maximo($u_ano, $u_mes) {
@@ -66,13 +66,18 @@ class AgendaController extends Controller
           $agenda->fk_user = $user->id;
           $agenda->atividade = $request->add_tarefa;
           $agenda->dia = $request->data;
-          $agenda->status = "1";
+          $agenda->status = "0";
           $agenda->cor = $request->add_cor;
           $agenda->descricao = $request->add_descricao;
 
-         $result =  $agenda->save();
+          $result = $agenda->save();
+
+          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
+
+          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
 
           return redirect('/calendario')->with(['message'=> 'realizado com sucesso']);
+
      }
 
      public function checar_atividade(Request $request){
@@ -97,20 +102,30 @@ class AgendaController extends Controller
           $ano = $request->ano;
      }
 
-     public function deletar($id) {
-          Agenda::find($id)->delete();
-          return redirect('/calendario');
+     public function deletar(Request $request) {
+          $user = Auth::user();
+
+          Agenda::find($request->id)->delete();
+          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
+
+          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
      }
 
-     public function feita($id, $stts) {
-          if($stts == 0) {
-               $val = 1;
-          } else {
-               $val = 0;
-          }
+     public function fazer(Request $request) {
+          $user = Auth::user();
+
+          $val = $request->status;
+          if($val < 2) { $val++; } else { $val = 0; }
+
+          Agenda::find($request->id)->update(['status' => $val]);
+          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
+
+
+          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
 
           Agenda::find($id)->update(['status' => $val]);
           return redirect('/login');
+
      }
 
      public function atividade_user($id, $mes){
