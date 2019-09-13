@@ -45,6 +45,8 @@ Route::post('calendario/feita', 'AgendaController@fazer')->name('fazer');
 // Deletar
 Route::get('calendario/delete', function() {return redirect('calendario');} );
 Route::post('calendario/delete', 'AgendaController@deletar')->name('deletar');
+
+// Auth
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
