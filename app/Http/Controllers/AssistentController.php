@@ -40,5 +40,9 @@ class AssistentController extends Controller
         return redirect('');
     }
 
+    public function add_new_pergunt(){
+        return view('agenda.novas');
+    }
+
     
 }
