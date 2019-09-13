@@ -1,4 +1,5 @@
 <script>
+
     function ajax_bot(pergunta,resposta){
         $.ajax({
             type:"POST",
@@ -7,7 +8,7 @@
             data:{pergunta:pergunta,resposta:resposta},
             success:function success(data){
                 //alert(data['total']);
-                $("#like_" + resposta).text(data['total']);
+                $("#resposta_" + resposta).text(data['total']);
                 },
             erro:function erro(msg){
                 console.log(msg);
