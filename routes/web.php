@@ -46,6 +46,9 @@ Route::post('calendario/feita', 'AgendaController@fazer')->name('fazer');
 Route::get('calendario/delete', function() {return redirect('calendario');} );
 Route::post('calendario/delete', 'AgendaController@deletar')->name('deletar');
 
+// Feriados
+Route::get('/feriados', function() {return view('agenda.feriados');} );
+
 // Auth
 Auth::routes();
 
