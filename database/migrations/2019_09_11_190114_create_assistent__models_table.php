@@ -14,6 +14,7 @@ class CreateAssistentModelsTable extends Migration
     public function up()
     {
         Schema::create('assistent__models', function (Blueprint $table) {
+            
             $table->increments('id');
             $table->text('pergunta');
             $table->text('resposta');

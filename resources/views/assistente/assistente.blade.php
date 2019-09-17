@@ -43,7 +43,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body texto" onload="javascript:ultimaMensagem()">
+            <div class="modal-body texto">
                 <div class="tela-msg">
                     <div class="mensagens col-sm-11" id="msg">
                         <div class="msg assistente col-sm-7">
@@ -61,7 +61,7 @@
                             <div class="form-row">
                                 <div class="col-9">
                                     <input type="text" name="mensagem" class="form-control">
-                                </div>)
+                                </div>
                                 <div class="col-3">
                                     <input type="submit" name="btn-msg" class="btn btn-primary col-sm-12">
                                 </div>
