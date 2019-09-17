@@ -9,6 +9,24 @@
             var x = document.getElementById('end');
             x.scrollIntoView();
         }
+        
+        function ajax_bot(pergunta,resposta){
+            $.ajax({
+                type:"POST",
+                url:"assistent",
+                dataType:"json",
+                data:{pergunta:pergunta,resposta:resposta},
+                success:function success(data){
+                    //alert(data['total']);
+                    $("#resposta_" + resposta).text(data['total']);
+                    },
+                erro:function erro(msg){
+                    console.log(msg);
+                } 
+            });
+        }
+
+
     </script>
 </head>
 
@@ -18,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="imagem">
-                    <img src="imagens/coala.jpg" class="imagem">
+                    <img src="storage/img/ass.png" class="imagem">
                 </div>
                 <h5 class="modal-title" id="exampleModalLabel">Assistente Virtual</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -39,75 +57,16 @@
                         <div id="end"></div>
                     </div>
                     <div class="escrever col-sm-12">
-                        <form action="{{}}" method="POST">
+                        <form action="{{route('assistente')}}" method="POST">
                             <div class="form-row">
                                 <div class="col-9">
                                     <input type="text" name="mensagem" class="form-control">
-                                </div>
+                                </div>)
                                 <div class="col-3">
                                     <input type="submit" name="btn-msg" class="btn btn-primary col-sm-12">
                                 </div>
                             </div>
                         </form>
-    <script>
-        function ultimaMensagem() {
-            var x = document.getElementById('fim');
-            x.scrollIntoView();
-        }
-    </script>
-
-</head>
-
-<!-- Modal -->
-<body onload="javascript:ultimaMensagem();">
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
-        Abrir modal de demonstração
-    </button>
-
-    <div class="modal fade rolagem" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="imagem">
-                        <img src="img/bot.jpg" class="imagem">
-                    </div>
-                    <h5 class="modal-title" id="exampleModalLabel">Assistente Virtual</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body texto">
-                    <div class="tela-msg">
-                        <div class="mensagens col-sm-11">
-                            <div class="msg assistente col-sm-7">
-                                Como posso ajudar?
-                            </div>
-
-                            <div class="msg usuario col-sm-7">
-                                Com nada, obrigado!
-                            </div>
-
-                            <div id="fim"></div>
-                        </div>
-                        <div class="escrever col-sm-12">
-                            <form action="{{}}" method="POST">
-                                <div class="form-row">
-                                    <div class="col-9">
-                                        <input type="text" name="mensagem" class="form-control">
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="submit" name="btn-msg" class="btn btn-primary col-sm-12">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
 
 <style>
 
@@ -126,5 +85,5 @@
 
     img.imagem { height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; }
 
-    img.imagem { height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; }
+    
 </style>
