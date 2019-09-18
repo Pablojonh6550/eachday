@@ -18,7 +18,7 @@ class DataController extends Controller
         
         $save = $data_com->save();
 
-        return redirect('/add');
+        return redirect('/feriados');
         
     }
 }
