@@ -11,10 +11,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Each Day</title>
 </head>
+
 <body>
     <section class='corpo'>
         @yield('content')
     </section>
 </body>
 
+<script>
+    $('#radioBtn a').on('click', function(){
+        var sel = $(this).data('title');
+        var tog = $(this).data('toggle');
+        $('#'+tog).prop('value', sel);
+        
+        $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+        $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+    })
+</script>
 </html>

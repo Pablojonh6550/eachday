@@ -65,7 +65,9 @@ section.dados td.status { width: 10%; }
 section.dados div.info { height: 30px; width: 30px; border-radius: 15%;}
 
 /* Feriados */
-section.feriados { width: 50%; }
+section.feriados { width: 50%; padding: 2%; }
+#radio { width: 100%; }
+#radioBtn a { padding: 10px; width: 100%; }
 
 @media only screen and (max-width: 1200px) {
     section.corpo { width: 80%; margin-top: 1%;}

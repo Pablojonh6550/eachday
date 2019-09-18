@@ -15,9 +15,10 @@ class CreateDatasComsTable extends Migration
     {
         Schema::create('datas_coms', function (Blueprint $table) {
             $table->increments('id');
-            $table->interger('dia')->nullable();
-            $table->interger('mes')->nullable();
+            $table->integer('dia')->nullable();
+            $table->integer('mes')->nullable();
             $table->text('data_comemorativa');
+            $table->char('prioridade',1);
             $table->timestamps();
         });
     }
