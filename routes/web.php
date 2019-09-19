@@ -47,6 +47,7 @@ Route::get('calendario/perfil', 'PerfilController@redirect')->name('perfil');
 
 /* -------------------------------------Rotas Chat----------------------------------------- */
 Route::get('/assistente', 'AssistentController@index_pergunta')->name('assistente');
+Route::post('/assistente/test', 'AssistentController@pesquisa')->name('pesquisa');
 
 Route::get('/test', function() {
     return view('layouts.test');

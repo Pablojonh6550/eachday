@@ -15,7 +15,7 @@ class AssistentController extends Controller
         $pesquisa = DB::table('assistent_models')->where('id',$id)->get();
         $resposta = $pesquisa->resposta;
 
-        return view('assistente.assistente'); 
+        return response()->json(['resposta' => $reposta]);
 
     }
 
