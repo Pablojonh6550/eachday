@@ -74,10 +74,7 @@ class AgendaController extends Controller
 
           $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
 
-          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
-
-          return redirect('/calendario')->with(['message'=> 'realizado com sucesso']);
-
+          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);        
      }
 
      public function checar_atividade(Request $request){
@@ -119,13 +116,8 @@ class AgendaController extends Controller
 
           Agenda::find($request->id)->update(['status' => $val]);
           $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
-
-
+          
           return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
-
-          Agenda::find($id)->update(['status' => $val]);
-          return redirect('/login');
-
      }
 
      public function atividade_user($id, $mes){

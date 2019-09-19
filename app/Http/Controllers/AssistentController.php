@@ -27,7 +27,7 @@ class AssistentController extends Controller
     }
 
     public function add_pergunta(Resquest $request){
-       $add = $request->all();
+        $add = $request->all();
         Assistent_Model::create($add);
         
         return redirect('');
@@ -43,7 +43,5 @@ class AssistentController extends Controller
     public function add_new_pergunt(){
         return view('agenda.novas');
     }
-    
-
-    
+       
 }

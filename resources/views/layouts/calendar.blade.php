@@ -19,13 +19,27 @@
 </body>
 
 <script>
-    $('#radioBtn a').on('click', function(){
-        var sel = $(this).data('title');
-        var tog = $(this).data('toggle');
-        $('#'+tog).prop('value', sel);
-        
-        $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
-        $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
-    })
+    function Mudarestado(el,bnt,fer) {
+        var bntl = document.getElementById(bnt).classList;
+
+        if (bntl == "none") {
+            document.getElementById(bnt).classList.remove('none');
+            document.getElementById(bnt).classList.add('block');
+
+            document.getElementById(el).classList.remove('block');
+            document.getElementById(el).classList.add('none');
+
+            document.getElementById(fer).value="Atividades";
+        }else{
+            document.getElementById(el).classList.remove('none');
+            document.getElementById(el).classList.add('block');
+
+            document.getElementById(bnt).classList.remove('block');
+            document.getElementById(bnt).classList.add('none');
+
+            document.getElementById(fer).value="Feriados";
+        }
+    }
 </script>
+
 </html>
