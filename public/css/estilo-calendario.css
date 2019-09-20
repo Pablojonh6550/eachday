@@ -11,6 +11,7 @@ div.perfil { margin-left: 1%; width: 29%; float: left;}
 td.dia { font-weight: bolder; width: 20%;}
 td.atividade { text-align: left; }
 td.atual { background-color: rgb(169, 212, 169); }
+td.alg-left { text-align: left; }
 
 .calendario td { width: 10%; }
 .calendario button { width: 70%; }

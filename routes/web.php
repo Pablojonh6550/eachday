@@ -36,8 +36,9 @@ Route::get('calendario/delete', function() {return redirect('calendario');} );
 Route::post('calendario/delete', 'AgendaController@deletar')->name('deletar');
 
 // Feriados
-Route::get('/feriados', function() {return view('agenda.feriados');} );
+Route::get('/feriados', function() {return view('feriados.feriados');} );
 Route::post('/feriados/add/', 'DataController@add_data')->name('add_data');
+Route::get('feriados/view', 'DataController@exibir')->name('exibir_feriados');
 
 // Auth
 Auth::routes();

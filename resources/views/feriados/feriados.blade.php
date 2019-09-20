@@ -2,13 +2,19 @@
 
 @section('content')
 <section class="dados">
+    <a href="{{route('exibir_feriados')}}">Feriados</a>
     <section class="feriados">
         <form action="{{ route('add_data') }}" method="post">
-        @csrf
+            @csrf
             <article class="corpo">
                 <div class="iinput-group mb-3">
+                    <label class="label-local" for="comemoracao">Comemorativo</label>
+                    <input type="text" class="input-local form-control" id="comemoracao" name="comemoracao" required autofocus>
+                </div>
+
+                <div class="iinput-group mb-3">
                     <label class="label-local" for="dia">Dia</label>
-                    <input type="number" class="input-local form-control" id="dia" name="dia" required autofocus>
+                    <input type="number" class="input-local form-control" id="dia" name="dia" required >
                 </div>
 
                 <div class="iinput-group mb-3">
@@ -31,25 +37,20 @@
                 </div>
 
                 <div class="iinput-group mb-3">
-                    <label class="label-local" for="comemoracao">Comemorativo</label>
-                    <input type="text" class="input-local form-control" id="comemoracao" name="comemoracao" required>
-                </div>
-
-                <div class="iinput-group mb-3">
                     <label class="label-local" for="radioBtn">Prioridade</label>
                     <div id="radioBtn" class="btn-group col-12">
                         <a class="btn btn-outline-secondary btn-sm" data-toggle="prioridade" data-title="1" name="prioridade">Prioritário</a>
-                        <a class="btn btn-outline-secondary btn-sm" data-toggle="prioridade" data-title="2" name="prioridade">Secundário</a>
-                    </div>      
-                    <input type="hidden" name="prioridade" id="prioridade">          
+                        <a class="btn btn-outline-secondary active btn-sm" data-toggle="prioridade" data-title="2" name="prioridade">Secundário</a>
+                    </div>
+                    <input type="hidden" name="prioridade" value="2" id="prioridade">
                 </div>
             </article>
-            
+
             <article class="corpo">
                 <div class="iinput-group mb-3">
-                    <button type="submit" name="bnt_inserir" id="bnt_inserir" class="btn btn-dark btn-lg btn-block">Inserir</button>            
+                    <button type="submit" name="bnt_inserir" id="bnt_inserir" class="btn btn-dark btn-lg btn-block">Inserir</button>
                 </div>
-            </article>  
+            </article>
         </form>
     </section>
 </section>
