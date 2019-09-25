@@ -61,6 +61,7 @@ class AgendaController extends Controller
      }
 
      public function salvar(Request $request, Agenda $agenda){
+          
           $user = Auth::user();
 
           $agenda->fk_user = $user->id;
@@ -73,8 +74,9 @@ class AgendaController extends Controller
           $result = $agenda->save();
 
           $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
-
-          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);        
+          
+          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
+                
      }
 
      public function checar_atividade(Request $request){

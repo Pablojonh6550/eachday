@@ -1,6 +1,7 @@
 @extends('layouts.calendar')  
 
 @section('content') 
+
 <section class="dados">
      @if(count($atividade) > 0)
      <div class="tabelaatividade">

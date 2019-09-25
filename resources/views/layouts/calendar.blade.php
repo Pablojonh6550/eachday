@@ -20,6 +20,7 @@
 
 <script>
 
+
     $('#radioBtn a').on('click', function(){
         var sel = $(this).data('title');
         var tog = $(this).data('toggle');
@@ -60,6 +61,7 @@
         // $(document).ready(function(){ $("#alert").modal(); });
         
     });
+
 
 </script>
 
