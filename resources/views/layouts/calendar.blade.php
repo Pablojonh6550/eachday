@@ -54,6 +54,13 @@
             document.getElementById(fer).value="Feriados";
         }
     }
+
+    $('#btn-add-1').on('click', function() {
+         alert('dados add');
+        // $(document).ready(function(){ $("#alert").modal(); });
+        
+    });
+
 </script>
 
 </html>

@@ -34,7 +34,7 @@
       <div class="input-group-prepend"></div>
       <input type="hidden" name="data" value="{{$data}}">
       <a href="{{route('calendar')}}" class="btn btn-danger alinkado">Cancelar</a>
-      <button type="submit" name="btn-add" class="btn btn-primary">Adicionar</button>
+      <button type="submit" name="btn-add" id="btn-add-1" class="btn btn-primary">Adicionar</button>
     </div>
     </form>
   </div>

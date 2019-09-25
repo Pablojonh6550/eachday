@@ -34,9 +34,9 @@
 
     function ajax(data) {
         $.ajax({
-            type: 'POST',
+            // type: 'POST',
             url: '/test',
-            dataType: 'json',
+            // dataType: 'json',
             data: {
                 data: data
             },

@@ -21,7 +21,7 @@ div.messemana { text-align: right; padding: 1%;}
 div.messemana select { margin-right: 1%; }
 div.view { width: 50%; }
 
-div.atividades { height: 397px; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
+div.atividades { height: 397px; padding: 2%; color: rgb(107, 107, 107);}
 div.atividades td { border:1px solid silver; border-left: none; border-right: none; }
 div.atividades table { width: 90%; }
 

@@ -5,7 +5,7 @@
 
 <!-- Modal -->
 
-<body>
+<body onload="ultimaMensagem()">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,14 +27,126 @@
                         <div class="msg usuario col-sm-7">
                             Com nada, obrigado!
                         </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
 
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        <div class="msg assistente col-sm-7">
+                            Como posso ajudar?
+                        </div>
+
+                        <div class="msg usuario col-sm-7">
+                            Com nada, obrigado!
+                        </div>
+                        
                         <div id="end"></div>
                     </div>
                     <div class="escrever col-sm-12">
                         <form method="POST">
                             <div class="form-row">
                                 <div class="col-9">
-                                    <input type="text" class="form-control" style="border:1px solid black;">
+                                    <input type="text" class="form-control" style="border:1px solid silver;">
                                 </div>
                                 <div class="col-3">
                                     <button id="btn" class="btn btn-primary col-sm-12">vai</button>
