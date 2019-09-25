@@ -25,7 +25,7 @@ class DataController extends Controller
 
     public function exibir()
     {
-        $feriados = DB::table('datas_coms')->orderBy('mes', 'desc')->orderBy('dia', 'desc')->get();
+        $feriados = DB::table('datas_coms')->where('prioridade','1')->orderBy('mes', 'ASC')->orderBy('dia', 'ASC')->get();
 
         return view('feriados.view', ['feriados' => $feriados]);
     }

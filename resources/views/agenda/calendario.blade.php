@@ -6,7 +6,7 @@
     <nav>
         <div class="container messemana" id="div_messemana">
             <form action="{{route('mes')}}" method="post">
-            @csrf
+                @csrf
                 <select class="btn btn-secondary" name="list" id="list">
                     <option selected disabled= "true">Mês</option>
                     <option value="1">Janeiro</option>
@@ -23,11 +23,11 @@
                     <option value="12">Dezembro</option>                            
                 </select>
 
-                <button type='submit' class='btn btn-primary'>OK</button>
+                <input type='submit' class='btn btn-primary' value="OK">
             </form>
         </div>
-        
     </nav>
+    
 </div>
 
 @if(session('message'))
@@ -36,7 +36,9 @@
 
 <div class='calendario'>
     <table class="table table-striped calendario bordasilver">
-        <th colspan="7" class='mes-calendario'>{{ $meses }} de {{ $u_ano }}</th>
+        <tr>
+            <th colspan="7" class='mes-calendario'>{{ $meses }} de {{ $u_ano }}</th>
+        </tr>
         <tr class='menu-calendario'>
             <td class='dia-blue'>D</td><td>S</td><td>T</td><td>Q</td><td>Q</td><td>S</td><td class='dia-blue'>S</td>
         </tr>
@@ -68,7 +70,7 @@
                         @csrf
                             <input type="hidden" name="data" value={{$u_ano}}-{{$u_mes}}-{{$dia}}>
                             @if(date('Y-m-d') == $u_ano.'-'.$u_mes.'-0'.$dia || date('Y-m-d') == $u_ano.'-'.$u_mes.'-'.$dia)
-                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-success">
+                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-outline-success">
                             @elseif($cor > 0)
                                 <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-primary">
                             @else  
@@ -90,6 +92,7 @@
 
 <div class='perfil menu bordasilver'>
     <div>
+    <input type="submit" class="btn btn-outline-secondary float-sm-right" value="Feriados" id="btnferiado" onclick="Mudarestado('atividade','feriado','btnferiado')">
         <ul class="navbar-nav ml-auto menu-auth">
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -112,45 +115,31 @@
     </div>
 
     <div class="atividades">
-        @if($atividades_user)
-            <table>
-                <th colspan="2">Atividades do Mês</th>
-            @foreach($atividades_user as $dados)
-                @php($data = $dados->dia)
-                
-                @if(date('Y-m-d') == $data)
-                    @php($atual = "atual")
-                @else  
-                    @php($atual = "")
-                @endif
-                
-                <tr>
-                    <td class="dia {{$atual}}">{{date('d', strtotime($data))}}</td>
-                    <td class="atividade {{$atual}}">{{$dados->atividade}}</td>
-                </tr>
-            @endforeach
-            </table>
-        @endif
-    </div>
-</div>
+        <div class="block" id="atividade">
+            @if($atividades_user)   
+                <table>
+                    <th colspan="2">Atividades do Mês</th>
+                @foreach($atividades_user as $dados)
+                    @php($data = $dados->dia)
+                    
+                    @if(date('Y-m-d') == $data)
+                        @php($atual = "atual")
+                    @else  
+                        @php($atual = "")
+                    @endif
+                    
+                    <tr>
+                        <td class="dia {{$atual}}">{{date('d', strtotime($data))}}</td>
+                        <td class="atividade {{$atual}}">{{$dados->atividade}}</td>
+                    </tr>
+                @endforeach
+                </table>
+            @endif
+        </div>
 
-<!-- Modal -->
-<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Atividade adicionada!
-      </div>
-      
-      <div class="modal-footer">
-      </div>
+        <div class="none" id="feriado">
+            Feriados
+        </div>
     </div>
-  </div>
 </div>
 @endsection

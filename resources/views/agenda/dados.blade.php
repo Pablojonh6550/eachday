@@ -36,6 +36,7 @@
                          @csrf
                          <input type="hidden" name="id" value="{{$dados->id}}">
                          <input type="hidden" name="status" value="{{$dados->status}}">
+                         <input type="hidden" name="data" value="{{$data}}">
                          <input type="submit" name="btn-fazer" class="btn btn-success alinkado" value="{{$acao}}">
                     </form>
                </td>
@@ -68,7 +69,7 @@
           @csrf
                <div class="input-group-prepend"></div>
                <input type="hidden" name="data" value="{{$data}}">
-               <a href="{{route('calendar')}}" class="btn btn-danger alinkado">Cancelar</a>
+               <a href="{{route('calendar')}}" class="btn btn-danger alinkado">Voltar</a>
                <button type="submit" name="btn-add" class="btn btn-primary">Adicionar</button>
           </form>
      </div>

@@ -10,12 +10,12 @@ use DB;
 class AssistentController extends Controller
 {
     public function pesquisa(Request $request){
-        $request->id;
+        $id = $request->id;
 
         $pesquisa = DB::table('assistent_models')->where('id',$id)->get();
         $resposta = $pesquisa->resposta;
 
-        return view('assistente.assistente'); 
+        return response()->json(['resposta' => $resposta]);
 
     }
 
@@ -27,7 +27,7 @@ class AssistentController extends Controller
     }
 
     public function add_pergunta(Resquest $request){
-       $add = $request->all();
+        $add = $request->all();
         Assistent_Model::create($add);
         
         return redirect('');
@@ -43,7 +43,5 @@ class AssistentController extends Controller
     public function add_new_pergunt(){
         return view('agenda.novas');
     }
-    
-
-    
+       
 }
