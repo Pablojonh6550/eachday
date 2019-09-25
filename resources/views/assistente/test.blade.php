@@ -15,38 +15,35 @@
 </head>
 
 <body style="marfin">
-    <form method="POST"></form>
-    <input type="text" id="tt">
-    <button id="bnt" name="bnt">
-        click
-    </button>
+    <form method="POST" action="{{ route('pesquisa')}}">
+            <input type="text" id="tt">
+            <button id="bnt" name="bnt">
+                click
+            </button>
+    </form>
     <div id="div" style="background-color:rgb(25, 31, 38)">
-
-    </div>
-
-
+        </div>
 </body>
 
 <script>
-
     $('#bnt').on('click', function() {
         var tt = document.getElementById('tt').value;
         ajax(tt);
-        
+
     });
 
     function ajax(data) {
         $.ajax({
-            // type: 'POST',
+            type: 'POST',
             url: '/test',
-            // dataType: 'json',
+            dataType: 'json',
             data: {
                 data: data
             },
             success: function success() {
                 alert(data);
                 $('#div').html(data);
-                $('#div').html("<img src='storage/img/gif_log.gif'/>").fadeIn('fast');
+                // $('#div').html("<img src='storage/img/gif_log.gif'/>").fadeIn('fast');
             }
         });
     }

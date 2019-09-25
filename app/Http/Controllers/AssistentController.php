@@ -10,12 +10,17 @@ use DB;
 class AssistentController extends Controller
 {
     public function pesquisa(Request $request){
-        $id = $request->id;
+        $id = $request->tt;
 
         $pesquisa = DB::table('assistent_models')->where('id',$id)->get();
         $resposta = $pesquisa->resposta;
-
-        return response()->json(['resposta' => $resposta]);
+        if (count($pesquisa)) {
+            # code...
+            return response()->json(['resposta' => $resposta]);
+        }else{
+            return view('assistente.test');
+        }
+        
 
     }
 

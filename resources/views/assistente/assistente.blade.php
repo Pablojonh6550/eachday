@@ -31,10 +31,10 @@
                         <div id="end"></div>
                     </div>
                     <div class="escrever col-sm-12">
-                        <form>
+                        <form method="POST">
                             <div class="form-row">
                                 <div class="col-9">
-                                    <!-- <input type="text" class="form-control"> -->
+                                    <input type="text" class="form-control" style="border:1px solid black;">
                                 </div>
                                 <div class="col-3">
                                     <button id="btn" class="btn btn-primary col-sm-12">vai</button>
@@ -60,7 +60,6 @@
                                 $.ajax({
                                     type: "POST",
                                     url: "/assistente/test",
-                                    dataType: "json",
                                     data: {
                                         pergunta: pergunta
                                     },
