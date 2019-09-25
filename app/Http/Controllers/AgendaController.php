@@ -129,4 +129,14 @@ class AgendaController extends Controller
           }
   
       }
+
+     public function feriados($mes){
+          $feriados_dados = DB::select('select * from feriados where month(dia) = ? order by dia', [$mes]);
+
+          if(count($feriados_dados)>0){
+               return $feriados_dados;
+          }
+     }
+
+          
 }
