@@ -15,13 +15,14 @@
 </head>
 
 <body style="marfin">
-    <form method="POST" action="{{ route('pesquisa')}}">
+    
             <input type="text" id="tt">
             <button id="bnt" name="bnt">
                 click
             </button>
-    </form>
+    
     <div id="div" style="background-color:rgb(25, 31, 38)">
+        
         </div>
 </body>
 
@@ -43,7 +44,7 @@
             success: function success() {
                 alert(data);
                 $('#div').html(data);
-                // $('#div').html("<img src='storage/img/gif_log.gif'/>").fadeIn('fast');
+                $('#div').html("<img src='storage/img/seta.png'/>");
             }
         });
     }
