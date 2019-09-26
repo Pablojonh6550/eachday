@@ -62,21 +62,24 @@ class AgendaController extends Controller
 
      public function salvar(Request $request, Agenda $agenda){
           
-          $user = Auth::user();
+          $request->session()->flash('success');
 
-          $agenda->fk_user = $user->id;
-          $agenda->atividade = $request->add_tarefa;
-          $agenda->dia = $request->data;
-          $agenda->status = "0";
-          $agenda->cor = $request->add_cor;
-          $agenda->descricao = $request->add_descricao;
-
-          $result = $agenda->save();
-
-          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
-          
-          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
-                
+          if(session('success')){
+               
+               $user = Auth::user();
+               $agenda->fk_user = $user->id;
+               $agenda->atividade = $request->add_tarefa;
+               $agenda->dia = $request->data;
+               $agenda->status = "0";
+               $agenda->cor = $request->add_cor;
+               $agenda->descricao = $request->add_descricao;
+     
+               $result = $agenda->save();
+     
+               $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
+               
+               return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
+          }
      }
 
      public function checar_atividade(Request $request){

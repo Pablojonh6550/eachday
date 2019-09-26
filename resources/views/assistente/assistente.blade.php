@@ -1,6 +1,10 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 
 <!-- Modal -->
@@ -21,125 +25,9 @@
                 <div class="tela-msg">
                     <div class="mensagens col-sm-11" id="msg">
                         <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
+                            camcmamcamcmamcmacmamccmamcsadfasdvadvasd
                         </div>
 
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        <div class="msg assistente col-sm-7">
-                            Como posso ajudar?
-                        </div>
-
-                        <div class="msg usuario col-sm-7">
-                            Com nada, obrigado!
-                        </div>
-                        
                         <div id="end"></div>
                     </div>
                     <div class="escrever col-sm-12">
@@ -156,28 +44,31 @@
 
 
                         <!-- ---------------------------------------------------------------   -->
-                        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-                        <script>
-                            src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"
-                        </script>
+
                         <script>
                             function ultimaMensagem() {
                                 var x = document.getElementById('end');
                                 x.scrollIntoView();
                             }
 
+                            $("#document").ready(function() {
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                            });
+
+
                             function ajax_bot(pergunta) {
                                 $.ajax({
                                     type: "POST",
-                                    url: "/assistente/test",
+                                    url: "/assistente/resposta",
                                     data: {
                                         pergunta: pergunta
                                     },
                                     success: function(data) {
-                                        alert(data);
-                                        // $("#resposta_" + resposta).text(data['dados']);
+                                        $("#msg").append("<div class='msg assistente col-sm-7'>" + data["resposta"] + "</div>");
                                     },
                                     erro: function erro(msg) {
                                         console.log(msg);
@@ -185,10 +76,20 @@
                                 });
                             }
 
-                            $('#btn').on('click', function() {
-                                alert('dffghjddethjugfedwgthjuhuytrfwdegthk');
-                                ajax_bot(1);
-                            })
+                            function add_chat() {
+                                let pergunta = $("#chat").val();
+
+                                if (perfunta == "") {
+                                    alert("DIGITE SUA MENSAGEM");
+                                } else {
+                                    $("#msg").append("<div class='msg usuario col-sm-7'>" + pergunta + "</div>");
+                                    ajax_bot(pergunta);
+                                }
+                            }
+
+                            $("#btn").on('click', function() {
+                                add_chat();
+                            });
                         </script>
 
                         <style>
@@ -228,6 +129,7 @@
 
                             div.assistente {
                                 background-color: silver;
+                                overflow-wrap: break-word;
                                 float: left;
                             }
 

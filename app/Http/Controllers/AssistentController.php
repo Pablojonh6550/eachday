@@ -10,18 +10,20 @@ use DB;
 class AssistentController extends Controller
 {
     public function pesquisa(Request $request){
-        $id = $request->tt;
+      $chat = $request->pergunta;
 
-        $pesquisa = DB::table('assistent_models')->where('id',$id)->get();
-        $resposta = $pesquisa->resposta;
-        if (count($pesquisa)) {
-            # code...
-            return response()->json(['resposta' => $resposta]);
-        }else{
-            return view('assistente.test');
-        }
+      $pesquisa = DB::table('asssitent__models')->where('id',$chat)->get();
+
+      if (count($pesquisa)) {
+          # code...
+          $resposta = $pesquisa[0]->resposta;
+          return ["resposta" => $resposta];
+      }else{
+
+            return ["resposta" => "Insira uma opção valida!"];
+      }
         
-
+    
     }
 
     //CRUD assistent
