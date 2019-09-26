@@ -20,7 +20,7 @@ class AssistentController extends Controller
           return ["resposta" => $resposta];
       }else{
 
-            return ["resposta" => "Insira uma opção valida!"];
+        return ["resposta" => "Insira uma opção valida!"];
       }
         
     
