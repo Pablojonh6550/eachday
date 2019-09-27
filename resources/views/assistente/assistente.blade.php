@@ -28,7 +28,6 @@
                             Como possor ajudar?<hr>  
                             1- Turorial. <br>
                             2- Dicas. <br>
-                            3- 
                         </div>
 
                         <div id="end"></div>
