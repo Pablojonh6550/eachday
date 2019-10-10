@@ -2,10 +2,11 @@
 
 @section('content')  
 
+
 <div class='menu bordasilver'>
     <nav>
         <div class="container messemana" id="div_messemana">
-            <form action="{{route('mes')}}" method="post">
+            <form action="{{ route('mes') }}" method="post">
                 @csrf
                 <select class="btn btn-secondary" name="list" id="list">
                     <option selected disabled= "true">Mês</option>
@@ -29,10 +30,6 @@
     </nav>
     
 </div>
-
-@if(session('message'))
-<script> $(document).ready(function(){ $("#alert").modal(); }); </script>
-@endif
 
 <div class='calendario'>
     <table class="table table-striped calendario bordasilver">
@@ -65,17 +62,19 @@
                         @endforeach
                     @endif
 
+                    @if(date('Y-m-d') == $u_ano.'-'.$u_mes.'-0'.$dia || date('Y-m-d') == $u_ano.'-'.$u_mes.'-'.$dia)
+                        @php($classe = "success")
+                    @elseif($cor > 0)
+                        @php($class = "")
+                    @else 
+                        @php($class = "-outline") 
+                    @endif
+
                     <td>
-                        <form action="{{route('checar'), $dia}}" method="post">
-                        @csrf
+                        <form action="{{route('checar')}}" method="post">
+                            @csrf
                             <input type="hidden" name="data" value={{$u_ano}}-{{$u_mes}}-{{$dia}}>
-                            @if(date('Y-m-d') == $u_ano.'-'.$u_mes.'-0'.$dia || date('Y-m-d') == $u_ano.'-'.$u_mes.'-'.$dia)
-                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-outline-success">
-                            @elseif($cor > 0)
-                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-primary">
-                            @else  
-                                <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn-outline-{{$classe}}">
-                            @endif
+                            <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn{{$class}}-{{$classe}}">
                                 {{$dia}}
                             </button>
                         </form>
