@@ -56,12 +56,30 @@
         }
     }
 
-    $('#btn-add-1').on('click', function() {
-         alert('dados add');
-        // $(document).ready(function(){ $("#alert").modal(); });
-        
-    });
+    function MudarFigura(figura) {
+        var objeto = document.querySelector('#'+figura.id)
+        var up = "http://localhost:8000/storage/ikons/32/arrow_up_silver.png"
+        var down = "http://localhost:8000/storage/ikons/32/arrow_down_silver.png"
 
+        if(objeto.src == down) {
+            objeto.src = up
+        } else {
+            objeto.src = down
+        }
+    }
+
+    function mouseOver(objeto) {
+        objeto.src = "../storage/ikons/32/circle_left_red_all.png";
+    }
+
+    function mouseOut(objeto) {
+        objeto.src = "../storage/ikons/32/circle_left_red.png";
+    }
+
+    // function escolherDia(objeto) {
+    //     var url = objeto.id
+
+    // }
 
 </script>
 

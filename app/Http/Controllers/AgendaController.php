@@ -39,8 +39,8 @@ class AgendaController extends Controller
           return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user, 'atividades_user' => $atividades_mes]);
      }
 
-     public function dia(Request $request) {
-          $data = $request->data;
+     public function tarefa(){
+          $data = session('data');
 
           return view('agenda.view', ['data' => $data]);
      }
@@ -64,21 +64,21 @@ class AgendaController extends Controller
           
           $request->session()->flash('success');
 
-          if(session('success')){
-               
+          if(session('success')){              
                $user = Auth::user();
                $agenda->fk_user = $user->id;
                $agenda->atividade = $request->add_tarefa;
-               $agenda->dia = $request->data;
+               $agenda->dia = session('data');
                $agenda->status = "0";
                $agenda->cor = $request->add_cor;
                $agenda->descricao = $request->add_descricao;
+               $agenda->save();
      
-               $result = $agenda->save();
-     
-               $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
-               
-               return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
+               $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', session('data'))->get();
+
+               session(['atividade' => $atividade]);
+
+               return redirect('/calendario/dia')->with('salvar', 'Tarefa salva com sucesso!');
           }
      }
 
@@ -88,11 +88,20 @@ class AgendaController extends Controller
           $data = $request->data;
           $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $data)->get();
 
+          session(['data' => $data]);
+          session(['atividade' => $atividade]);
+
+          return redirect('/calendario/dia');
+     }
+
+     public function entrar(){
+          $data = session('data');
+          $atividade = session('atividade');
+
           return view('agenda.dados', ['atividade' => $atividade, 'data' => $data]);
      }
 
-     public function convert($data)
-     {
+     public function convert($data){
           $meses=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
           return $meses[$data-1];
 
@@ -104,25 +113,29 @@ class AgendaController extends Controller
           $ano = $request->ano;
      }
 
-     public function deletar(Request $request) {
+     public function deletar($id) {
           $user = Auth::user();
 
-          Agenda::find($request->id)->delete();
-          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
+          Agenda::find($id)->delete();
+          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', session('data'))->get();
 
-          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
+          session(['atividade' => $atividade]);
+
+          return redirect('/calendario/dia');
      }
 
-     public function fazer(Request $request) {
+     public function fazer($id, $status) {
           $user = Auth::user();
 
-          $val = $request->status;
+          $val = $status;
           if($val < 2) { $val++; } else { $val = 0; }
 
-          Agenda::find($request->id)->update(['status' => $val]);
-          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $request->data)->get();
+          Agenda::find($id)->update(['status' => $val]);
+          $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', session('data'))->get();
           
-          return view('agenda.dados', ['atividade' => $atividade, 'data' => $request->data]);
+          session(['atividade' => $atividade]);
+
+          return redirect('/calendario/dia');
      }
 
      public function atividade_user($id, $mes){
@@ -135,7 +148,8 @@ class AgendaController extends Controller
   
       }
 
-     public function feriados($mes){
+     
+      public function feriados($mes){
           $feriados_dados = DB::select('select * from feriados where month(dia) = ? order by dia', [$mes]);
 
           if(count($feriados_dados)>0){

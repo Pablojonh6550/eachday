@@ -32,53 +32,28 @@
 </div>
 
 <div class='calendario'>
-    <table class="table table-striped calendario bordasilver">
+    <table class="table table-striped calendario bordasilver" border="1">
         <tr>
             <th colspan="7" class='mes-calendario'>{{ $meses }} de {{ $u_ano }}</th>
         </tr>
         <tr class='menu-calendario'>
-            <td class='dia-blue'>D</td><td>S</td><td>T</td><td>Q</td><td>Q</td><td>S</td><td class='dia-blue'>S</td>
+            <td class='dia-blue'>DOM</td><td>SEG</td><td>TER</td><td>QUA</td><td>QUI</td><td>SEX</td><td class='dia-blue'>SAB</td>
         </tr>
+         <!-------------------------------------------------- CALENDÁRIO / DIA  -------------------------------------------------->
         @php ($dia=1)
         @for($sem=0; $sem<=5; $sem++)
             <tr class="data">
-            @for($cnd=1; $cnd<=7; $cnd++) 
-                @if($cnd == 1 || $cnd == 7)
-                    @php ($classe = "primary")
-                @else
-                    @php ($classe = "secondary")
-                @endif
-
+            @for($cnd=1; $cnd<=7; $cnd++)
                 @if($sem == 0 && $inimes > $cnd) 
                     <td></td>
                 @elseif($dia <= $maxmes)
-                    @php($cor = 0)
-
-                    @if($atividades_user)
-                        @foreach($atividades_user as $dados)
-                            @if($dados->dia == $u_ano.'-'.$u_mes.'-0'.$dia || $dados->dia == $u_ano.'-'.$u_mes.'-'.$dia)
-                                @php($cor++) 
-                            @endif
-                        @endforeach
-                    @endif
-
-                    @if(date('Y-m-d') == $u_ano.'-'.$u_mes.'-0'.$dia || date('Y-m-d') == $u_ano.'-'.$u_mes.'-'.$dia)
-                        @php($classe = "success")
-                    @elseif($cor > 0)
-                        @php($class = "")
-                    @else 
-                        @php($class = "-outline") 
-                    @endif
-
-                    <td>
-                        <form action="{{route('checar')}}" method="post">
-                            @csrf
-                            <input type="hidden" name="data" value={{$u_ano}}-{{$u_mes}}-{{$dia}}>
-                            <button type="submit" name="bnt-{{$u_ano}}{{$u_mes}}{{$dia}}" class="btn btn{{$class}}-{{$classe}}">
-                                {{$dia}}
-                            </button>
-                        </form>
-                    </td>               
+                    <form action="route('checar')"> 
+                    @csrf
+                    <input type="hidden" name="data" value={{$u_ano}}-{{$u_mes}}-{{$dia}}>      
+                    <td onclick="escolherDia(this)">
+                        <button type="submit"><h1 class="bolder">{{$dia}}</h1></button>
+                    </td>
+                    </form>
                     @php ($dia++)
                 @else
                     <td></td>

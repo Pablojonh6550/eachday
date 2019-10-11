@@ -20,20 +20,15 @@ Route::put('/calendario/login/update/','loginController@update')->name('update')
 Route::get('calendario', 'AgendaController@index')->name('calendar')->middleware();
 Route::post('calendario', 'AgendaController@mes')->name('mes');
 // View Atividade
-Route::get('calendario/atividade', function() {return redirect('calendario');} );
-Route::post('calendario/atividade', 'AgendaController@checar_atividade')->name('checar');
+Route::get('calendario/dia', 'AgendaController@entrar')->name('entrar');
+Route::post('calendario/escolher/{data}', 'AgendaController@checar_atividade')->name('checar');
 // Adicionar Tarefa
-Route::get('calendario/tarefa', function() {return redirect('calendario');} );
-Route::post('calendario/tarefa', 'AgendaController@dia')->name('dia');
+Route::get('calendario/tarefa', 'AgendaController@tarefa')->name('tarefa');
 Route::post('calendario/add', 'AgendaController@salvar')->name('salvar');
-// View Dados
-Route::get('calendario/dados', 'AgendaController@dados')->name('dados');
 // Feita
-Route::get('calendario/feita', function() {return redirect('calendario');} );
-Route::post('calendario/feita', 'AgendaController@fazer')->name('fazer');
+Route::get('calendario/fazer/{id}.{status}', 'AgendaController@fazer')->name('fazer');
 // Deletar
-Route::get('calendario/delete', function() {return redirect('calendario');} );
-Route::post('calendario/delete', 'AgendaController@deletar')->name('deletar');
+Route::get('calendario/deletar/{id}', 'AgendaController@deletar')->name('deletar');
 
 // Feriados
 Route::get('/feriados', function() {return view('feriados.feriados');} );

@@ -1,4 +1,6 @@
-* { margin: 0 auto; text-align: center; text-decoration: none;}
+* { margin: 0 auto; text-align: center; text-decoration: none; }
+
+img { height: 28px; }
 
 section.corpo { width: 70%; margin-top: 1%;}
 section.dados { border: 1px solid silver; box-shadow: 5px 5px 5px silver; }
@@ -8,13 +10,16 @@ section.dados { border: 1px solid silver; box-shadow: 5px 5px 5px silver; }
 div.calendario { width: 70%; float: left;}
 div.perfil { margin-left: 1%; width: 29%; float: left;}
 
-td.dia { font-weight: bolder; width: 20%;}
+tr.data { height: 63px; }
+td.dia { font-weight: bolder; width: 20%; }
 td.atividade { text-align: left; }
 td.atual { background-color: rgb(169, 212, 169); }
 td.alg-left { text-align: left; }
 
-.calendario td { width: 10%; }
-.calendario button { width: 70%; }
+.calendario td.data { width: 10%; font-style: italic; }
+.calendario td.data h1 { font-size: 15px; text-align: right;  }
+.calendario td.data h2 { font-size: 10px; }
+.calendario td.data a { height:100%;width:100%; }
 
 div.menu {background-color: rgb(242,242,242); padding-top: 1% 0%; margin-bottom: 1%;}
 div.messemana { text-align: right; padding: 1%;}
@@ -42,6 +47,8 @@ tr.menu-calendario td.dia-blue { color: #007BFF; }
 button.mais { background-color: transparent; border: none; color: rgba(37, 37, 37, 0.774); font-weight: bolder; }
 td.mais { background-color:  rgb(242,242,242); transition: 1s; }
 
+button.btn-acao { background: white; border: none; width: 30px; }
+
 nav { text-align: center; }
 
 /* Configurando cores */
@@ -62,13 +69,23 @@ section.dados { width: 80%; }
 section.dados td.cor { width: 10%; }
 section.dados td.atividade { width: 60%; text-align: left;}
 section.dados td.status { width: 10%; }
+section.dados td.adicionar { text-align: right; }
 
 section.dados div.info { height: 30px; width: 30px; border-radius: 15%;}
+section.dados a.adicionar { text-decoration: none; color: #0097E5; font-size: 14px; }
+
+/* Tarefas */
+h5.data { float: left; color: gray; }
+a.voltar { float: left; margin: 1%; }
+img.tarefa-atividade { height: 24px; }
+.input-atividade { text-align: left; }
+input.cor { width: 50px; }
+textarea.tarefa-area { resize: none; text-align: left; width: 86.5%; border-color: rgb(206, 212, 218); border-radius: 0px 4px 4px 0px; padding: 5px 13px;}
 
 /* Feriados */
 section.feriados { width: 50%; }
-div.block { display: block; height: 400px; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
-div.none { display: none; height: 400px; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
+div.block { display: block; height: 100%; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
+div.none { display: none; height: 100%; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
 
 @media only screen and (max-width: 1200px) {
     section.corpo { width: 80%; margin-top: 1%;}
@@ -82,7 +99,8 @@ div.none { display: none; height: 400px; overflow: auto; padding: 2%; color: rgb
 
 @media only screen and (max-width: 800px) {
     section.corpo { width: 95%; margin-top: 1%;}
-    .calendario button { width: 66%;}
+    .calendario button { width: 66%; }
+    textarea.tarefa-area { width: 79.8%; }
 }
 
 @media only screen and (max-width: 600px) {
