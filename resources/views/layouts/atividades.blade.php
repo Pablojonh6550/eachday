@@ -8,7 +8,7 @@
     @elseif($_SERVER ['REQUEST_URI'] == "/calendario/tarefa")
         <a href="{{route('entrar')}}" class="voltar">
     @endif
-        <img src="../storage/ikons/32/circle_left_red.png" id="imgvolt" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+        <img src="../storage/ikons/32/circle_left_red.png" id="imgvolt" >
     </a>
     
     @yield('atividades')
