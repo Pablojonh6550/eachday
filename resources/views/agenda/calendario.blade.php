@@ -1,38 +1,32 @@
 @extends('layouts.calendar')  
 
 @section('content')  
-
-
 <div class='menu bordasilver'>
     <nav>
-        <div class="container messemana" id="div_messemana">
-            <form action="{{ route('mes') }}" method="post">
-                @csrf
-                <select class="btn btn-secondary" name="list" id="list">
-                    <option selected disabled= "true">Mês</option>
-                    <option value="1">Janeiro</option>
-                    <option value="2">Fevereiro</option>
-                    <option value="3">Março</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Maio</option>
-                    <option value="6">Junho</option>
-                    <option value="7">Julho</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Setembro</option>
-                    <option value="10">Outubro</option>
-                    <option value="11">Novembro</option>
-                    <option value="12">Dezembro</option>                            
-                </select>
+        <div class="container messemana" id="div_messemana">    
+            <select class="btn btn-secondary" name="list" id="list" onchange="escolherMes(this)">
+                <option selected disabled= "true">Mês</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>                            
+            </select>
 
-                <input type='submit' class='btn btn-primary' value="OK">
-            </form>
         </div>
     </nav>
     
 </div>
 
 <div class='calendario'>
-    <table class="table table-striped calendario bordasilver" border="1">
+    <table class="table-striped calendario bordasilver" border="1">
         <tr>
             <th colspan="7" class='mes-calendario'>{{ $meses }} de {{ $u_ano }}</th>
         </tr>
@@ -46,14 +40,10 @@
             @for($cnd=1; $cnd<=7; $cnd++)
                 @if($sem == 0 && $inimes > $cnd) 
                     <td></td>
-                @elseif($dia <= $maxmes)
-                    <form action="route('checar')"> 
-                    @csrf
-                    <input type="hidden" name="data" value={{$u_ano}}-{{$u_mes}}-{{$dia}}>      
-                    <td onclick="escolherDia(this)">
-                        <button type="submit"><h1 class="bolder">{{$dia}}</h1></button>
+                @elseif($dia <= $maxmes)   
+                    <td onclick="escolherDia(this)" class="data" id="{{$u_ano.'-'.$u_mes.'-'.$dia}}">
+                        <h1 class="bolder">{{$dia}}</h1>
                     </td>
-                    </form>
                     @php ($dia++)
                 @else
                     <td></td>
@@ -64,9 +54,9 @@
     </table>
 </div>
 
+<!-------------------------------------------------- QUADRO DE ATIVIDADES DO USUÁRIO  -------------------------------------------------->
 <div class='perfil menu bordasilver'>
     <div>
-    <input type="submit" class="btn btn-outline-secondary float-sm-right" value="Feriados" id="btnferiado" onclick="Mudarestado('atividade','feriado','btnferiado')">
         <ul class="navbar-nav ml-auto menu-auth">
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -76,7 +66,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                        document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
 

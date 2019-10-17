@@ -18,10 +18,10 @@ Route::put('/calendario/login/update/','loginController@update')->name('update')
 
 // Calendário
 Route::get('calendario', 'AgendaController@index')->name('calendar')->middleware();
-Route::post('calendario', 'AgendaController@mes')->name('mes');
+Route::get('calendario/mes/{mes}', 'AgendaController@mes')->name('mes');
 // View Atividade
 Route::get('calendario/dia', 'AgendaController@entrar')->name('entrar');
-Route::post('calendario/escolher/{data}', 'AgendaController@checar_atividade')->name('checar');
+Route::get('calendario/escolher/{data}', 'AgendaController@checar_atividade')->name('checar');
 // Adicionar Tarefa
 Route::get('calendario/tarefa', 'AgendaController@tarefa')->name('tarefa');
 Route::post('calendario/add', 'AgendaController@salvar')->name('salvar');

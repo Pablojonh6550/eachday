@@ -1,32 +1,37 @@
-* { margin: 0 auto; text-align: center; text-decoration: none; }
+/* //////////////////////////////////////// FONTE LOCAL //////////////////////////////////////// */
+@font-face { font-family: robago; src: url("../fonts/Robaga\ Rounded\ Regular.otf"); }
 
-img { height: 28px; }
+* { margin: 0 auto; text-align: center; text-decoration: none; font-family: robago;}
 
-section.corpo { width: 70%; margin-top: 1%;}
-section.dados { border: 1px solid silver; box-shadow: 5px 5px 5px silver; }
+body { background-image: url("../storage/wallpaper/tempo.jpg"); }
+
+section.corpo { width: 75%; margin-top: 1%;}
+section.dados { border: 1px solid silver; background-color: rgba(255,255,255,.95); border-radius: 10px; }
 
 .bordasilver { border: solid 1px rgb(222,226,230);}
 
-div.calendario { width: 70%; float: left;}
-div.perfil { margin-left: 1%; width: 29%; float: left;}
+div.calendario { width: 72%; background-color: rgba(255,255,255,.95); float: left; }
+div.perfil { margin-left: 1%; width: 27%; float: left;}
 
-tr.data { height: 63px; }
+tr.data { height: 70px; }
 td.dia { font-weight: bolder; width: 20%; }
 td.atividade { text-align: left; }
 td.atual { background-color: rgb(169, 212, 169); }
 td.alg-left { text-align: left; }
 
-.calendario td.data { width: 10%; font-style: italic; }
-.calendario td.data h1 { font-size: 15px; text-align: right;  }
+.calendario td.data { width: 10%; cursor: pointer; padding: 1%; }
+.calendario td.data:hover { background-color:#bbb; }
+.calendario td.data h1 { font-size: 15px; text-align: right; height: 45px; }
 .calendario td.data h2 { font-size: 10px; }
-.calendario td.data a { height:100%;width:100%; }
+.calendario td.data a { height:100%; width:100%; }
+.calendario table { width: 100%; }
 
-div.menu {background-color: rgb(242,242,242); padding-top: 1% 0%; margin-bottom: 1%;}
-div.messemana { text-align: right; padding: 1%;}
+div.menu { background-color: rgba(255,255,255,.95); padding-top: 1% 0%; margin-bottom: 1%; border-radius: 10px;}
+div.messemana { padding: 1% 0%;}
 div.messemana select { margin-right: 1%; }
 div.view { width: 50%; }
 
-div.atividades { height: 397px; padding: 2%; color: rgb(107, 107, 107);}
+div.atividades { height: 477px; padding: 2%; color: rgb(107, 107, 107); }
 div.atividades td { border:1px solid silver; border-left: none; border-right: none; }
 div.atividades table { width: 90%; }
 
@@ -38,8 +43,8 @@ div.alerta { width: 50%; margin: 30px auto;}
 
 .menu select { width: 20%; }
 
-th.mes-calendario { text-align: left; padding: 1% 10%;}
-tr.menu-calendario { font-weight: bolder; }
+th.mes-calendario { text-align: left; padding: 1% 10%; height: 48px; }
+tr.menu-calendario { font-weight: bolder; height: 50px; }
 
 tr.menu-calendario td { color: #6C757D; }
 tr.menu-calendario td.dia-blue { color: #007BFF; }
@@ -70,6 +75,7 @@ section.dados td.cor { width: 10%; }
 section.dados td.atividade { width: 60%; text-align: left;}
 section.dados td.status { width: 10%; }
 section.dados td.adicionar { text-align: right; }
+section.dados td.data { text-align: left; }
 
 section.dados div.info { height: 30px; width: 30px; border-radius: 15%;}
 section.dados a.adicionar { text-decoration: none; color: #0097E5; font-size: 14px; }
@@ -81,11 +87,12 @@ img.tarefa-atividade { height: 24px; }
 .input-atividade { text-align: left; }
 input.cor { width: 50px; }
 textarea.tarefa-area { resize: none; text-align: left; width: 86.5%; border-color: rgb(206, 212, 218); border-radius: 0px 4px 4px 0px; padding: 5px 13px;}
+.descricao { font-family: robago; margin: 0 auto; text-align: left; }
 
 /* Feriados */
 section.feriados { width: 50%; }
-div.block { display: block; height: 100%; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
-div.none { display: none; height: 100%; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
+.block { display: block; height: 100%; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
+.none { display: none; height: 100%; overflow: auto; padding: 2%; color: rgb(107, 107, 107);}
 
 @media only screen and (max-width: 1200px) {
     section.corpo { width: 80%; margin-top: 1%;}

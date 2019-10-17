@@ -20,7 +20,6 @@
 
 <script>
 
-
     $('#radioBtn a').on('click', function(){
         var sel = $(this).data('title');
         var tog = $(this).data('toggle');
@@ -34,52 +33,41 @@
         location.reload();
     }
 
-    function Mudarestado(el,bnt,fer) {
-        var bntl = document.getElementById(bnt).classList;
-
-        if (bntl == "none") {
-            document.getElementById(bnt).classList.remove('none');
-            document.getElementById(bnt).classList.add('block');
-
-            document.getElementById(el).classList.remove('block');
-            document.getElementById(el).classList.add('none');
-
-            document.getElementById(fer).value="Atividades";
-        }else{
-            document.getElementById(el).classList.remove('none');
-            document.getElementById(el).classList.add('block');
-
-            document.getElementById(bnt).classList.remove('block');
-            document.getElementById(bnt).classList.add('none');
-
-            document.getElementById(fer).value="Feriados";
-        }
-    }
-
-    function MudarFigura(figura) {
-        var objeto = document.querySelector('#'+figura.id)
-        var up = "http://localhost:8000/storage/ikons/32/arrow_up_silver.png"
-        var down = "http://localhost:8000/storage/ikons/32/arrow_down_silver.png"
-
-        if(objeto.src == down) {
+    function mudarFigura(objeto) {   
+        var url = "http://localhost:8000/storage/ikons/32/"
+        var up = url+"arrow_up_silver.png"
+        var down = url+"arrow_down_silver.png"
+        
+        var info = document.querySelector('#info-'+objeto.id)
+    
+        if(info.classList == "mais none") {
             objeto.src = up
+            info.classList.remove('none')
         } else {
             objeto.src = down
+            info.classList.add('none')
         }
     }
 
-    function mouseOver(objeto) {
-        objeto.src = "../storage/ikons/32/circle_left_red_all.png";
+    function mouseOver(objeto, imagem) {
+        objeto.src = "../storage/ikons/32/"+imagem+".png";
     }
 
-    function mouseOut(objeto) {
-        objeto.src = "../storage/ikons/32/circle_left_red.png";
+    function mouseOut(objeto, imagem) {
+        objeto.src = "../storage/ikons/32/"+imagem+".png";
     }
 
-    // function escolherDia(objeto) {
-    //     var url = objeto.id
+    function escolherDia(objeto) {
+        var link = "{{ route('checar', ':url') }}"
+        link = link.replace(':url', objeto.id)
+        window.location.href = link
+    }
 
-    // }
+    function escolherMes(mes) {
+        var link = "{{ route('mes', ':url') }}"
+        link = link.replace(':url', mes.value)
+        window.location.href = link
+    }
 
 </script>
 

@@ -13,8 +13,13 @@ class AgendaController extends Controller
    
      public function index(){
           $user = Auth::user();
+    
+          if(session('u_mes')) {
+               $u_mes = session('u_mes');
+          } else {
+               $u_mes = date('m');
+          }
 
-          $u_mes = date('m');
           $u_ano = date('Y');
 
           $retorno = AgendaController::maximo($u_ano, $u_mes);
@@ -25,18 +30,9 @@ class AgendaController extends Controller
           return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user, 'atividades_user' => $atividades_mes]);
      }
 
-     public function mes(Request $request){
-          $user = Auth::user();
-          
-          $u_mes = $request->list;
-          $u_ano = 2019;
-
-          $retorno = AgendaController::maximo($u_ano, $u_mes);
-          $meses = AgendaController::convert($u_mes);
-          
-          $atividades_mes = AgendaController::atividade_user($user->id, $u_mes);
-
-          return view('agenda.calendario', ['maxmes' => $retorno[1], 'inimes' => $retorno[0], 'meses' => $meses, 'u_mes' => $u_mes, 'u_ano' => $u_ano, 'user' => $user, 'atividades_user' => $atividades_mes]);
+     public function mes($mes){
+          session(['u_mes'=>$mes]);
+          return redirect('/calendario');
      }
 
      public function tarefa(){
@@ -82,10 +78,9 @@ class AgendaController extends Controller
           }
      }
 
-     public function checar_atividade(Request $request){
+     public function checar_atividade($data){
           $user = Auth::user();
 
-          $data = $request->data;
           $atividade = DB::table('agendas')->where('fk_user', $user->id)->where('dia', $data)->get();
 
           session(['data' => $data]);
@@ -95,7 +90,7 @@ class AgendaController extends Controller
      }
 
      public function entrar(){
-          $data = session('data');
+          $data = date("d.m.Y", strtotime(session('data')));
           $atividade = session('atividade');
 
           return view('agenda.dados', ['atividade' => $atividade, 'data' => $data]);
