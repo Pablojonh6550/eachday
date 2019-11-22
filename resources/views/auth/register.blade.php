@@ -60,7 +60,7 @@
             </div>
 
             <span>
-                <p>Já está cadastrado? <a href="{{ route('login')}}">Logue-se</a></p>
+                <p>Já está cadastrado? <a href="{{ route('index')}}">Logue-se</a></p>
             </span>
         </article>  
     </form>   

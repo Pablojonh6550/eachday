@@ -69,6 +69,29 @@
         window.location.href = link
     }
 
+    $('#deleted').on('click',function() {
+    $('#delete').modal('show');
+});
+    
 </script>
 
+<!-- Modal -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <p>Atividade deletada!                          :)</p>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 </html>

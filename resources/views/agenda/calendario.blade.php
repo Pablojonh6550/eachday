@@ -55,7 +55,7 @@
 </div>
 
 <!-------------------------------------------------- QUADRO DE ATIVIDADES DO USUÁRIO  -------------------------------------------------->
-<div class='perfil menu bordasilver'>
+<div class='perfil bordasilver'>
     <div>
         <ul class="navbar-nav ml-auto menu-auth">
             <li class="nav-item dropdown">

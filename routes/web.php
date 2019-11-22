@@ -7,7 +7,7 @@ Route::get('/', function() {
 
 /* -------------------------------------Rotas Login---------------------------------------- */
 
-Route::get('/login', 'LoginController@index_login')->name('index_login');
+// Route::get('/', 'LoginController@index_login')->name('index_login');
 Route::get('/calendario/cadastro', 'LoginController@create')->name('create');
 Route::post('/calendario/cadastro/add', 'LoginController@login_create')->name('adicionar_user');
 Route::post('/login/consultar','LoginController@login_consul')->name('consultar_user');

@@ -17,7 +17,7 @@
           @foreach($atividade as $dados)
 
           @if($dados->status == 0)
-               @php ($status = "AGENDEI")
+               @php ($status = "VAMOS LÁ!")
                @php ($acao = "square_play_silver")  
                @php ($cor = "red")
                @php ($title = "Começar")       
@@ -52,7 +52,7 @@
                     </a>
                </td>
                <td class="status-blue bolder">
-                    <a href="{{ route('deletar', ['id' => $dados->id]) }}">
+                    <a href="{{ route('deletar', ['id' => $dados->id]) }}" id="deleted">
                          <img src="../storage/ikons/32/bin_silver.png" title="Deletar">
                     </a>
                </td>
@@ -64,9 +64,10 @@
           @endforeach
      @else
           <tr>
-               <td colspan="5">Esse dia ainda não contém atividades, adicione agora!</td>
+               <td colspan="5">Esse dia ainda não contém atividades, então vamos lá!</td>
           </tr>
      @endif
      </table>
 </div>
+
 @endsection

@@ -11,7 +11,7 @@ section.dados { border: 1px solid silver; background-color: rgba(255,255,255,.95
 .bordasilver { border: solid 1px rgb(222,226,230);}
 
 div.calendario { width: 72%; background-color: rgba(255,255,255,.95); float: left; }
-div.perfil { margin-left: 1%; width: 27%; float: left;}
+div.perfil { margin-left: 1%; width: 27%; float: left; border-radius: 0px 0px 10px 0px; background-color: rgba(255,255,255,.95); }
 
 tr.data { height: 70px; }
 td.dia { font-weight: bolder; width: 20%; }
@@ -26,7 +26,7 @@ td.alg-left { text-align: left; }
 .calendario td.data a { height:100%; width:100%; }
 .calendario table { width: 100%; }
 
-div.menu { background-color: rgba(255,255,255,.95); padding-top: 1% 0%; margin-bottom: 1%; border-radius: 10px;}
+div.menu { background-color: rgba(255,255,255,.95); padding-top: 1% 0%; margin-bottom: 1%; border-radius: 10px 10px 0px 0px;}
 div.messemana { padding: 1% 0%;}
 div.messemana select { margin-right: 1%; }
 div.view { width: 50%; }
@@ -43,7 +43,7 @@ div.alerta { width: 50%; margin: 30px auto;}
 
 .menu select { width: 20%; }
 
-th.mes-calendario { text-align: left; padding: 1% 10%; height: 48px; }
+th.mes-calendario { text-align: left; padding: 1% 4.5%; height: 48px; }
 tr.menu-calendario { font-weight: bolder; height: 50px; }
 
 tr.menu-calendario td { color: #6C757D; }
